@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSK Packaging CAD & 3D Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Thanh tiêu đề phía trên -->
+  <header>
+    <h1>NSK Packaging CAD & 3D Viewer</h1>
+    <span class="badge">Vị trí: System Developer Demo</span>
+  </header>
+
+  <!-- Bố cục chính chia 2 bên -->
+  <main class="container">
+    
+    <!-- Cột bên trái: Bảng điều khiển -->
+    <aside class="sidebar">
+      <h2>Thông Số Hộp (mm)</h2>
+      <!-- THÊM TÙY CHỌN CHẤT LIỆU VÀ MÀU SẮC -->
+      <h2>Tùy Chỉnh Chất Liệu</h2>
+      <div class="input-group">
+        <label for="paper-type">Loại Giấy:</label>
+        <select id="paper-type">
+          <option value="kraft">Giấy Kraft Nâu (Carton)</option>
+          <option value="white">Giấy Trắng Glossy</option>
+          <option value="cardboard">Giấy Bìa Xám</option>
+        </select>
+      </div>
+
+      <button id="btn-export" class="btn-secondary">📷 Tải Ảnh Bản Vẽ 2D</button>
+      <div class="input-group">
+        <label for="length">Chiều Dài (L):</label>
+        <input type="number" id="length" value="120" min="50" max="300">
+      </div>
+
+      <div class="input-group">
+        <label for="width">Chiều Rộng (W):</label>
+        <input type="number" id="width" value="80" min="50" max="300">
+      </div>
+
+      <div class="input-group">
+        <label for="height">Chiều Cao (H):</label>
+        <input type="number" id="height" value="50" min="20" max="200">
+      </div>
+
+      <button id="btn-update">Cập Nhật Bản Vẽ</button>
+
+      <hr>
+
+      <h2>Điều Khiển 3D</h2>
+      <div class="input-group">
+        <label for="fold-range">Góc Gập Hộp:</label>
+        <input type="range" id="fold-range" min="0" max="90" value="0">
+        <span id="fold-value">0°</span>
+      </div>
+      <div class="button-group">
+        <button id="btn-auto-fold">▶ Tự Động Gập</button>
+        <button id="btn-reset-fold" class="btn-secondary">↺ Mở Phẳng</button>
+      </div>
+
+      <!-- Chú thích ký hiệu bản vẽ CAD -->
+      <div class="legend">
+        <h3>Chú thích CAD:</h3>
+        <p><span class="color-box cut"></span> Nét cắt (Cut Line)</p>
+        <p><span class="color-box crease"></span> Nếp gấp (Crease Line)</p>
+      </div>
+    </aside>
+
+    <!-- Cột bên phải: Hiển thị 2D Canvas -->
+    <section class="viewport">
+      <div class="canvas-card">
+        <h2>Bản Vẽ CAD 2D</h2>
+        <canvas id="cadCanvas" width="600" height="500"></canvas>
+      </div>
+      <div class="canvas-card">
+        <h2>Mô Hình 3D Tương Tác</h2>
+        <!-- Khung chứa Scene 3D -->
+        <div id="threejs-container" style="width: 400px; height: 400px;"></div>
+      </div>
+    </section>
+
+  </main>
+<!-- 1. Thư viện Three.js Core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- 2. Thư viện OrbitControls (Cho phép kéo chuột để xoay/zoom 3D) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- 3. Code logic chính -->
+  <script src="main.js"></script>
+</body>
+</html>
