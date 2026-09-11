@@ -19,19 +19,47 @@
     
     <!-- Cột bên trái: Bảng điều khiển -->
     <aside class="sidebar">
-      <h2>Thông Số Hộp (mm)</h2>
-      <!-- THÊM TÙY CHỌN CHẤT LIỆU VÀ MÀU SẮC -->
-      <h2>Tùy Chỉnh Chất Liệu</h2>
-      <div class="input-group">
-        <label for="paper-type">Loại Giấy:</label>
-        <select id="paper-type">
-          <option value="kraft">Giấy Kraft Nâu (Carton)</option>
-          <option value="white">Giấy Trắng Glossy</option>
-          <option value="cardboard">Giấy Bìa Xám</option>
-        </select>
-      </div>
+      <!-- KHU VỰC THÔNG SỐ HỘP -->
+<h3 class="section-title">Thông Số Hộp (mm)</h3>
 
-      <button id="btn-export" class="btn-secondary">📷 Tải Ảnh Bản Vẽ 2D</button>
+<div class="input-group">
+  <label for="length">Chiều Dài (L):</label>
+  <input type="number" id="length" value="120" min="10" max="500">
+</div>
+
+<div class="input-group">
+  <label for="width">Chiều Rộng (W):</label>
+  <input type="number" id="width" value="80" min="10" max="500">
+</div>
+
+<div class="input-group">
+  <label for="height">Chiều Cao (H):</label>
+  <input type="number" id="height" value="50" min="10" max="500">
+</div>
+
+<button id="btn-update" class="btn-primary">Cập Nhật Bản Vẽ</button>
+
+<!-- KIỂU DÁNG & CHẤT LIỆU -->
+<h3 class="section-title">Tùy Chỉnh Chất Liệu & Kiểu Dáng</h3>
+
+<div class="input-group">
+  <label for="box-type">Kiểu Hộp:</label>
+  <select id="box-type">
+    <option value="standard">Hộp Nắp Gài Tiêu Chuẩn</option>
+    <option value="tray">Hộp Khay Mở (Nắp Rời)</option>
+  </select>
+</div>
+
+<div class="input-group">
+  <label for="paper-type">Loại Giấy:</label>
+  <select id="paper-type">
+    <option value="kraft">Giấy Kraft Nâu (Carton)</option>
+    <option value="white">Giấy Trắng Duplex / Couche</option>
+    <option value="cardboard">Bìa Cứng Xám</option>
+  </select>
+</div>
+
+<button id="btn-export" class="btn-secondary">📷 Tải Ảnh Bản Vẽ 2D</button>
       <div class="input-group">
         <label for="length">Chiều Dài (L):</label>
         <input type="number" id="length" value="120" min="50" max="300">
@@ -46,7 +74,6 @@
         <label for="height">Chiều Cao (H):</label>
         <input type="number" id="height" value="50" min="20" max="200">
       </div>
-
       <button id="btn-update">Cập Nhật Bản Vẽ</button>
 
       <hr>
